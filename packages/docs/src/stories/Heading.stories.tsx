@@ -5,7 +5,13 @@ export default {
   title: "Typograph/Heading",
   component: Heading,
   args: {
+    size: "md",
     children: "Custom title",
+  },
+  argTypes: {
+    size: {
+      options: ["sm", "md", "lg", "2xl", "4xl", "5xl", "6xl"],
+    },
   },
 } as Meta<HeadingProps>;
 

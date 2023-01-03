@@ -283,10 +283,235 @@ var Button = styled("button", {
     size: "md"
   }
 });
+
+// src/components/TextInput/styles.ts
+var TextInputContainer = styled("div", {
+  backgroundColor: "$gray900",
+  padding: "$3 $4",
+  borderRadius: "$sm",
+  boxSizing: "border-box",
+  border: "2px solid $gray900",
+  display: "flex",
+  alignItems: "baseline",
+  "&:has(input:focus)": {
+    borderColor: "$ignite300"
+  },
+  "&:has(input:disabled)": {
+    opacity: 0.5,
+    cursor: "not-allowed"
+  }
+});
+var Prefix = styled("span", {
+  fontFamily: "$default",
+  fontSize: "$sm",
+  color: "$gray400",
+  fontWeight: "regular"
+});
+var Input = styled("input", {
+  fontFamily: "$default",
+  fontSize: "$sm",
+  color: "$white",
+  fontWeight: "regular",
+  background: "transparent",
+  border: 0,
+  width: "100%",
+  "&:focus": {
+    outline: 0
+  },
+  "&:disabled": {
+    cursor: "not-allowed"
+  },
+  "&:placeholder": {
+    color: "$gray400"
+  }
+});
+
+// src/components/TextInput/index.tsx
+import { jsxDEV as jsxDEV2 } from "react/jsx-dev-runtime";
+function TextInput({ prefix, ...props }) {
+  return /* @__PURE__ */ jsxDEV2(TextInputContainer, { children: [
+    !!prefix && /* @__PURE__ */ jsxDEV2(Prefix, { children: prefix }, void 0, false, {
+      fileName: "src/components/TextInput/index.tsx",
+      lineNumber: 11,
+      columnNumber: 20
+    }, this),
+    /* @__PURE__ */ jsxDEV2(Input, { ...props }, void 0, false, {
+      fileName: "src/components/TextInput/index.tsx",
+      lineNumber: 12,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "src/components/TextInput/index.tsx",
+    lineNumber: 10,
+    columnNumber: 5
+  }, this);
+}
+
+// src/components/TextArea.tsx
+var TextArea = styled("textarea", {
+  backgroundColor: "$gray900",
+  padding: "$3 $4",
+  borderRadius: "$sm",
+  boxSizing: "border-box",
+  border: "2px solid $gray900",
+  fontFamily: "$default",
+  fontSize: "$sm",
+  color: "$white",
+  fontWeight: "$regular",
+  resize: "vertical",
+  minHeight: 80,
+  "&:focus": {
+    outline: 0,
+    borderColor: "$ignite300"
+  },
+  "&:disabled": {
+    opacity: 0.5,
+    cursor: "not-allowed"
+  },
+  "&:placholder": {
+    color: "$gray400"
+  }
+});
+
+// src/components/Checkbox/index.tsx
+import { Check } from "phosphor-react";
+
+// src/components/Checkbox/styles.ts
+import * as Checkbox from "@radix-ui/react-checkbox";
+import { keyframes } from "@stitches/react";
+var CheckboxContainer = styled(Checkbox.Root, {
+  all: "unset",
+  width: "$6",
+  height: "$6",
+  backgroundColor: "$gray900",
+  borderRadius: "$xs",
+  lineHeight: 0,
+  cursor: "pointer",
+  overflow: "hidden",
+  boxSizing: "border-box",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  border: "2px solid $ignite900",
+  '&[data-state="checked"]': {
+    backgroundColor: "$ignite300"
+  },
+  "&:focus": {
+    border: "2px solid $ignite300"
+  }
+});
+var slideIn = keyframes({
+  from: {
+    transform: "translateY(-100%)"
+  },
+  to: {
+    transform: "translateY(0)"
+  }
+});
+var slideOut = keyframes({
+  from: {
+    transform: "translateY(0)"
+  },
+  to: {
+    transform: "translateY(-100%)"
+  }
+});
+var CheckboxIndicator = styled(Checkbox.Indicator, {
+  color: "$white",
+  width: "$4",
+  height: "$4",
+  '&[data-state="checked"]': {
+    animation: `${slideIn} 200ms ease-out`
+  },
+  '&[data-state="unchecked"]': {
+    animation: `${slideOut} 200ms ease-out`
+  }
+});
+
+// src/components/Checkbox/index.tsx
+import { jsxDEV as jsxDEV3 } from "react/jsx-dev-runtime";
+function Checkbox2(props) {
+  return /* @__PURE__ */ jsxDEV3(CheckboxContainer, { ...props, children: /* @__PURE__ */ jsxDEV3(CheckboxIndicator, { asChild: true, children: /* @__PURE__ */ jsxDEV3(Check, { weight: "bold" }, void 0, false, {
+    fileName: "src/components/Checkbox/index.tsx",
+    lineNumber: 12,
+    columnNumber: 9
+  }, this) }, void 0, false, {
+    fileName: "src/components/Checkbox/index.tsx",
+    lineNumber: 11,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "src/components/Checkbox/index.tsx",
+    lineNumber: 10,
+    columnNumber: 5
+  }, this);
+}
+
+// src/components/MultiStep/styles.ts
+var MultiStepContainer = styled("div", {});
+var Label = styled(Text, {
+  color: "$gray200",
+  defaultVariants: {
+    size: "xs"
+  }
+});
+var Steps = styled("div", {
+  display: "grid",
+  gap: "$2",
+  marginTop: "$1",
+  gridTemplateColumns: "repeat(var(--steps-size), 1fr)"
+});
+var Step = styled("div", {
+  height: "$1",
+  borderRadius: "$px",
+  backgroundColor: "$gray600",
+  variants: {
+    active: {
+      true: {
+        backgroundColor: "$gray100"
+      }
+    }
+  }
+});
+
+// src/components/MultiStep/index.tsx
+import { jsxDEV as jsxDEV4 } from "react/jsx-dev-runtime";
+function MultiStep({ size, currentStep = 1 }) {
+  return /* @__PURE__ */ jsxDEV4(MultiStepContainer, { children: [
+    /* @__PURE__ */ jsxDEV4(Label, { children: [
+      "Passo ",
+      currentStep,
+      " de ",
+      size
+    ] }, void 0, true, {
+      fileName: "src/components/MultiStep/index.tsx",
+      lineNumber: 11,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV4(Steps, { css: { "--steps-size": size }, children: Array.from({ length: size }, (_, i) => i + 1).map((step) => {
+      return /* @__PURE__ */ jsxDEV4(Step, { active: currentStep >= step }, step, false, {
+        fileName: "src/components/MultiStep/index.tsx",
+        lineNumber: 17,
+        columnNumber: 18
+      }, this);
+    }) }, void 0, false, {
+      fileName: "src/components/MultiStep/index.tsx",
+      lineNumber: 15,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "src/components/MultiStep/index.tsx",
+    lineNumber: 10,
+    columnNumber: 5
+  }, this);
+}
 export {
   Avatar2 as Avatar,
   Box,
   Button,
+  Checkbox2 as Checkbox,
   Heading,
-  Text
+  MultiStep,
+  Text,
+  TextArea,
+  TextInput
 };

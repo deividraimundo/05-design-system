@@ -29,8 +29,12 @@ __export(src_exports, {
   Avatar: () => Avatar2,
   Box: () => Box,
   Button: () => Button,
+  Checkbox: () => Checkbox2,
   Heading: () => Heading,
-  Text: () => Text
+  MultiStep: () => MultiStep,
+  Text: () => Text,
+  TextArea: () => TextArea,
+  TextInput: () => TextInput
 });
 module.exports = __toCommonJS(src_exports);
 
@@ -319,11 +323,236 @@ var Button = styled("button", {
     size: "md"
   }
 });
+
+// src/components/TextInput/styles.ts
+var TextInputContainer = styled("div", {
+  backgroundColor: "$gray900",
+  padding: "$3 $4",
+  borderRadius: "$sm",
+  boxSizing: "border-box",
+  border: "2px solid $gray900",
+  display: "flex",
+  alignItems: "baseline",
+  "&:has(input:focus)": {
+    borderColor: "$ignite300"
+  },
+  "&:has(input:disabled)": {
+    opacity: 0.5,
+    cursor: "not-allowed"
+  }
+});
+var Prefix = styled("span", {
+  fontFamily: "$default",
+  fontSize: "$sm",
+  color: "$gray400",
+  fontWeight: "regular"
+});
+var Input = styled("input", {
+  fontFamily: "$default",
+  fontSize: "$sm",
+  color: "$white",
+  fontWeight: "regular",
+  background: "transparent",
+  border: 0,
+  width: "100%",
+  "&:focus": {
+    outline: 0
+  },
+  "&:disabled": {
+    cursor: "not-allowed"
+  },
+  "&:placeholder": {
+    color: "$gray400"
+  }
+});
+
+// src/components/TextInput/index.tsx
+var import_jsx_dev_runtime2 = require("react/jsx-dev-runtime");
+function TextInput({ prefix, ...props }) {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(TextInputContainer, { children: [
+    !!prefix && /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(Prefix, { children: prefix }, void 0, false, {
+      fileName: "src/components/TextInput/index.tsx",
+      lineNumber: 11,
+      columnNumber: 20
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(Input, { ...props }, void 0, false, {
+      fileName: "src/components/TextInput/index.tsx",
+      lineNumber: 12,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "src/components/TextInput/index.tsx",
+    lineNumber: 10,
+    columnNumber: 5
+  }, this);
+}
+
+// src/components/TextArea.tsx
+var TextArea = styled("textarea", {
+  backgroundColor: "$gray900",
+  padding: "$3 $4",
+  borderRadius: "$sm",
+  boxSizing: "border-box",
+  border: "2px solid $gray900",
+  fontFamily: "$default",
+  fontSize: "$sm",
+  color: "$white",
+  fontWeight: "$regular",
+  resize: "vertical",
+  minHeight: 80,
+  "&:focus": {
+    outline: 0,
+    borderColor: "$ignite300"
+  },
+  "&:disabled": {
+    opacity: 0.5,
+    cursor: "not-allowed"
+  },
+  "&:placholder": {
+    color: "$gray400"
+  }
+});
+
+// src/components/Checkbox/index.tsx
+var import_phosphor_react2 = require("phosphor-react");
+
+// src/components/Checkbox/styles.ts
+var Checkbox = __toESM(require("@radix-ui/react-checkbox"));
+var import_react2 = require("@stitches/react");
+var CheckboxContainer = styled(Checkbox.Root, {
+  all: "unset",
+  width: "$6",
+  height: "$6",
+  backgroundColor: "$gray900",
+  borderRadius: "$xs",
+  lineHeight: 0,
+  cursor: "pointer",
+  overflow: "hidden",
+  boxSizing: "border-box",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  border: "2px solid $ignite900",
+  '&[data-state="checked"]': {
+    backgroundColor: "$ignite300"
+  },
+  "&:focus": {
+    border: "2px solid $ignite300"
+  }
+});
+var slideIn = (0, import_react2.keyframes)({
+  from: {
+    transform: "translateY(-100%)"
+  },
+  to: {
+    transform: "translateY(0)"
+  }
+});
+var slideOut = (0, import_react2.keyframes)({
+  from: {
+    transform: "translateY(0)"
+  },
+  to: {
+    transform: "translateY(-100%)"
+  }
+});
+var CheckboxIndicator = styled(Checkbox.Indicator, {
+  color: "$white",
+  width: "$4",
+  height: "$4",
+  '&[data-state="checked"]': {
+    animation: `${slideIn} 200ms ease-out`
+  },
+  '&[data-state="unchecked"]': {
+    animation: `${slideOut} 200ms ease-out`
+  }
+});
+
+// src/components/Checkbox/index.tsx
+var import_jsx_dev_runtime3 = require("react/jsx-dev-runtime");
+function Checkbox2(props) {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(CheckboxContainer, { ...props, children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(CheckboxIndicator, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_phosphor_react2.Check, { weight: "bold" }, void 0, false, {
+    fileName: "src/components/Checkbox/index.tsx",
+    lineNumber: 12,
+    columnNumber: 9
+  }, this) }, void 0, false, {
+    fileName: "src/components/Checkbox/index.tsx",
+    lineNumber: 11,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "src/components/Checkbox/index.tsx",
+    lineNumber: 10,
+    columnNumber: 5
+  }, this);
+}
+
+// src/components/MultiStep/styles.ts
+var MultiStepContainer = styled("div", {});
+var Label = styled(Text, {
+  color: "$gray200",
+  defaultVariants: {
+    size: "xs"
+  }
+});
+var Steps = styled("div", {
+  display: "grid",
+  gap: "$2",
+  marginTop: "$1",
+  gridTemplateColumns: "repeat(var(--steps-size), 1fr)"
+});
+var Step = styled("div", {
+  height: "$1",
+  borderRadius: "$px",
+  backgroundColor: "$gray600",
+  variants: {
+    active: {
+      true: {
+        backgroundColor: "$gray100"
+      }
+    }
+  }
+});
+
+// src/components/MultiStep/index.tsx
+var import_jsx_dev_runtime4 = require("react/jsx-dev-runtime");
+function MultiStep({ size, currentStep = 1 }) {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(MultiStepContainer, { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(Label, { children: [
+      "Passo ",
+      currentStep,
+      " de ",
+      size
+    ] }, void 0, true, {
+      fileName: "src/components/MultiStep/index.tsx",
+      lineNumber: 11,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(Steps, { css: { "--steps-size": size }, children: Array.from({ length: size }, (_, i) => i + 1).map((step) => {
+      return /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(Step, { active: currentStep >= step }, step, false, {
+        fileName: "src/components/MultiStep/index.tsx",
+        lineNumber: 17,
+        columnNumber: 18
+      }, this);
+    }) }, void 0, false, {
+      fileName: "src/components/MultiStep/index.tsx",
+      lineNumber: 15,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "src/components/MultiStep/index.tsx",
+    lineNumber: 10,
+    columnNumber: 5
+  }, this);
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Avatar,
   Box,
   Button,
+  Checkbox,
   Heading,
-  Text
+  MultiStep,
+  Text,
+  TextArea,
+  TextInput
 });

@@ -1,0 +1,2 @@
+import{A as t}from"./index.301ca917.js";import"./index.69c9d478.js";import"./iframe.d6e75e77.js";import"./index.fad6f68b.js";import"./jsx-runtime.86f7ce20.js";const m={title:"Data display/Avatar",component:t,args:{src:"https://github.com/deividraimundo.png",alt:"Deivid Raimundo"},argTypes:{src:{control:{type:"text"}}}},p={},c={args:{src:void 0}},e=["Primary","WithFallback"];export{p as Primary,c as WithFallback,e as __namedExportsOrder,m as default};
+//# sourceMappingURL=Avatar.stories.586dbf3b.js.map
